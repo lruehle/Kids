@@ -85,10 +85,10 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="Killzone" parent="." instance=ExtResource("2_y3nk7")]
-position = Vector2(0, 8)
+position = Vector2(600.365, -103.955)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -1.5)
+position = Vector2(-600.365, 110.455)
 shape = SubResource("RectangleShape2D_s4l6m")
 
 [node name="RayCast2D_right" type="RayCast2D" parent="."]
