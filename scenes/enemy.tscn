@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://ct0b6lk7fhjkx"]
+[gd_scene load_steps=19 format=3 uid="uid://ct0b6lk7fhjkx"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_8aey1"]
 [ext_resource type="Texture2D" uid="uid://lrin3e3u7dsq" path="res://assets/sprites/slime_purple.png" id="1_ghov0"]
 [ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/killzone.tscn" id="2_y3nk7"]
+[ext_resource type="Texture2D" uid="uid://cs1ai30vxcxwu" path="res://assets/sprites/slime_green.png" id="3_kmybn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2dvi2"]
 atlas = ExtResource("1_ghov0")
@@ -18,6 +19,22 @@ region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdttc"]
 atlas = ExtResource("1_ghov0")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dpup"]
+atlas = ExtResource("3_kmybn")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgabn"]
+atlas = ExtResource("3_kmybn")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lddi"]
+atlas = ExtResource("3_kmybn")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqavo"]
+atlas = ExtResource("3_kmybn")
 region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_di5di"]
@@ -53,6 +70,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dpup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgabn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lddi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqavo")
+}],
+"loop": true,
+"name": &"idle_green",
 "speed": 10.0
 }, {
 "frames": [{

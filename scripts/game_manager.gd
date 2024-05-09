@@ -1,6 +1,7 @@
 extends Node
 
 var score
+var is_climbing = false
 #@onready var score_label = $Score
 func _ready():
 	SignalManager.connect("killzone_player_death", _on_killzone_player_death)

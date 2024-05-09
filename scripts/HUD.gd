@@ -4,7 +4,7 @@ extends Control
 
 
 func _ready():
-	score_label.text = "Score: "+ str(GameManager.score)
+	score_label.text = "Gold: "+ str(GameManager.score)
 
 func _on_coin_collected():
-	score_label.text = "Score: "+ str(GameManager.score)
+	score_label.text = "Gold: "+ str(GameManager.score)

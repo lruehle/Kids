@@ -568,8 +568,6 @@ layer_2/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0,
 
 [node name="Player" parent="." groups=["Climber"] instance=ExtResource("1_mpse7")]
 position = Vector2(0, -1)
-floor_constant_speed = true
-floor_snap_length = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
@@ -750,6 +748,9 @@ Gold wie möglich"
 
 [node name="enemies" type="Node" parent="."]
 
+[node name="Enemy" parent="enemies" instance=ExtResource("6_gyk3v")]
+position = Vector2(472, 4)
+
 [node name="Enemy2" parent="enemies" instance=ExtResource("6_gyk3v")]
 position = Vector2(75, 4)
 
@@ -782,7 +783,6 @@ position = Vector2(0, 5)
 [node name="ladder" parent="." instance=ExtResource("9_tbstg")]
 position = Vector2(1881, -351)
 scale = Vector2(0.489499, 0.485386)
-collision_mask = 2
 
 [connection signal="coin_collected" from="coins/coin" to="Game_Manager/CanvasLayer/HUD" method="_on_coin_collected"]
 [connection signal="coin_collected" from="coins/coin2" to="Game_Manager/CanvasLayer/HUD" method="_on_coin_collected"]
