@@ -13,19 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor() && not is_climbing:
-		velocity.y += gravity * delta
-	elif is_climbing:
-		velocity.y = 0
-		if Input.is_action_pressed("ui_up"):
-			velocity.y = -SPEED
-		elif Input.is_action_pressed("ui_down"):
-			velocity.y = SPEED
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+	apply_gravity(delta)
+	handle_jumps()
 
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction > 0:
@@ -39,10 +28,6 @@ func _physics_process(delta):
 			animated_sprite.play("idle")
 		else:
 			animated_sprite.play("run")
-	#if is_climbing:
-	#	if Input.is_action_pressed("ui_up")
-	#		animated_sprite.play("")
-			#gravity =100
 	elif is_climbing:
 		animated_sprite.play("climb")
 	else:
@@ -54,6 +39,25 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+func apply_gravity(delta):
+	if not is_on_floor() && not is_climbing:
+		velocity.y += gravity * delta
+	elif is_climbing:
+		velocity.y = 0
+		if Input.is_action_pressed("move_up"):
+			velocity.y = -SPEED
+		elif Input.is_action_pressed("move_down"):
+			velocity.y = SPEED
+
+func handle_jumps():
+	if is_on_floor():
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = JUMP_VELOCITY
+	#shorter jump if released earlier
+	else:
+		if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY/2:
+			velocity.y = JUMP_VELOCITY/2
 	
 func _disable_collision():
 	#doesnt yet seem to work
