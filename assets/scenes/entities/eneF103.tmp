@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dohfk14x0ton5"]
+
+[ext_resource type="Texture2D" uid="uid://d3c4b4uidqcx7" path="res://assets/sprites/Shark Sprite/Shark1.png" id="1_4p00t"]
+[ext_resource type="Script" path="res://scripts/states/State_Machine.gd" id="1_k6leb"]
+[ext_resource type="Script" path="res://scripts/states/Test_enemy_Base.gd" id="1_u3tkf"]
+[ext_resource type="Script" path="res://scripts/states/Enemy_Idle.gd" id="2_jburj"]
+[ext_resource type="Script" path="res://scripts/states/Enemy_Follow.gd" id="5_7hdej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbubs"]
+size = Vector2(27, 16)
+
+[node name="Enemy_StateMachine" type="CharacterBody2D"]
+script = ExtResource("1_u3tkf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_gbubs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4p00t")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_k6leb")
+initial_state = NodePath("Enemy_Follow")
+
+[node name="Enemy_Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("2_jburj")
+enemy = NodePath("../..")
+move_speed = null
+
+[node name="Enemy_Follow" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_7hdej")
+enemy = NodePath("../..")

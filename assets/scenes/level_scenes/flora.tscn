@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://gby6805i7vha"]
 
 [ext_resource type="Texture2D" uid="uid://d1h84s2unrd84" path="res://assets/sprites/world_tileset.png" id="1_y45gi"]
-[ext_resource type="Texture2D" uid="uid://5qmhrhfa85g6" path="res://assets/Shark Sprite/Shark2.png" id="2_6q6u1"]
-[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://scenes/coin.tscn" id="3_jsyn5"]
+[ext_resource type="Texture2D" uid="uid://5qmhrhfa85g6" path="res://assets/sprites/Shark Sprite/Shark2.png" id="2_6q6u1"]
+[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://assets/scenes/misc/coin.tscn" id="3_jsyn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3qvy"]
 texture = ExtResource("1_y45gi")

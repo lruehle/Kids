@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_lubaq"]
 [ext_resource type="FontFile" uid="uid://3nxm8sis26d1" path="res://assets/fonts/PixelOperator8.ttf" id="2_ylk3g"]
-[ext_resource type="TileSet" uid="uid://bv88uyko3s80s" path="res://scenes/game_copy.tres" id="3_xdouq"]
-[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://scenes/player.tscn" id="4_0i7ut"]
-[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/killzone.tscn" id="5_n530w"]
-[ext_resource type="PackedScene" uid="uid://efrdq4dimgx" path="res://scenes/platform.tscn" id="6_tbkps"]
-[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://scenes/coin.tscn" id="7_dtc42"]
-[ext_resource type="PackedScene" uid="uid://ct0b6lk7fhjkx" path="res://scenes/enemy.tscn" id="8_62tch"]
-[ext_resource type="PackedScene" uid="uid://ckklcek6v6v2e" path="res://scenes/ladder.tscn" id="9_tgns6"]
+[ext_resource type="TileSet" uid="uid://bv88uyko3s80s" path="res://assets/scenes/level_scenes/game_copy.tres" id="3_xdouq"]
+[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://assets/scenes/entities/player.tscn" id="4_0i7ut"]
+[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://assets/scenes/traps/killzone.tscn" id="5_n530w"]
+[ext_resource type="PackedScene" uid="uid://efrdq4dimgx" path="res://assets/scenes/traps/platform.tscn" id="6_tbkps"]
+[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://assets/scenes/misc/coin.tscn" id="7_dtc42"]
+[ext_resource type="PackedScene" uid="uid://ct0b6lk7fhjkx" path="res://assets/scenes/entities/enemy.tscn" id="8_62tch"]
+[ext_resource type="PackedScene" uid="uid://ckklcek6v6v2e" path="res://assets/scenes/misc/ladder.tscn" id="9_tgns6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8wut"]
 bg_color = Color(0, 0, 0, 0.470588)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kids"
-run/main_scene="res://scenes/game_lvl_2.tscn"
+run/main_scene="res://assets/scenes/level_scenes/game_lvl_2.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/game_manager.gd"
 SignalManager="*res://scripts/Signal_Manager.gd"
-Music="*res://scenes/music.tscn"
+Music="*res://assets/scenes/misc/music.tscn"
 
 [dotnet]
 

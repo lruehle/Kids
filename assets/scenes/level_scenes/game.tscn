@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpq4hmigg6hjq"]
 
-[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://scenes/player.tscn" id="1_mpse7"]
+[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://assets/scenes/entities/player.tscn" id="1_mpse7"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="2_4rubl"]
-[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/killzone.tscn" id="5_c6mlo"]
+[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://assets/scenes/traps/killzone.tscn" id="5_c6mlo"]
 [ext_resource type="FontFile" uid="uid://3nxm8sis26d1" path="res://assets/fonts/PixelOperator8.ttf" id="7_1oldq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8wut"]

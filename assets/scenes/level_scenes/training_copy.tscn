@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="1_7bs8x"]
 [ext_resource type="FontFile" uid="uid://3nxm8sis26d1" path="res://assets/fonts/PixelOperator8.ttf" id="2_5rlbi"]
-[ext_resource type="TileSet" uid="uid://ckrtwmmx0l57i" path="res://scenes/training_copy.tres" id="3_bqoql"]
-[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://scenes/player.tscn" id="5_4bugy"]
-[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/killzone.tscn" id="6_pdldc"]
-[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://scenes/coin.tscn" id="7_0njyk"]
+[ext_resource type="TileSet" uid="uid://ckrtwmmx0l57i" path="res://assets/scenes/level_scenes/training_copy.tres" id="3_bqoql"]
+[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://assets/scenes/entities/player.tscn" id="5_4bugy"]
+[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://assets/scenes/traps/killzone.tscn" id="6_pdldc"]
+[ext_resource type="PackedScene" uid="uid://faupo158q26k" path="res://assets/scenes/misc/coin.tscn" id="7_0njyk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badj6"]
 bg_color = Color(0, 0, 0, 0.470588)

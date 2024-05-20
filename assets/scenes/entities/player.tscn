@@ -1,94 +1,94 @@
 [gd_scene load_steps=27 format=3 uid="uid://02yb8aqvo00y"]
 
-[ext_resource type="Texture2D" uid="uid://x6axgui12paw" path="res://assets/sprites/knight.png" id="1_h6r0t"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_p1diu"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_v6h7k"]
+[ext_resource type="Texture2D" uid="uid://x6axgui12paw" path="res://assets/sprites/knight.png" id="2_nfx07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bga5a"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cqiin"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ya632"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ir32j"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5upw0"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wfw0j"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo58r"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6bond"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l3c3r"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fa2l1"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ml62r"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(128, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dn82s"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(160, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxdm0"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(192, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vowqp"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(224, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8xcdi"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d50i5"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpq15"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0gkul"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xwyl1"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_astg3"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(160, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgjie"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(192, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dyhcw"]
-atlas = ExtResource("1_h6r0t")
+atlas = ExtResource("2_nfx07")
 region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7cy31"]
@@ -187,7 +187,7 @@ height = 14.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
-script = ExtResource("1_p1diu")
+script = ExtResource("1_v6h7k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
