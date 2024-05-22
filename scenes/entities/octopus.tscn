@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://1klq5o24jdy8"]
+
+[ext_resource type="PackedScene" uid="uid://dohfk14x0ton5" path="res://scenes/entities/enemy_FSM.tscn" id="1_wei42"]
+[ext_resource type="Texture2D" uid="uid://7t7qhj8dqund" path="res://assets/sprites/Oktopus/Walk.png" id="2_jp0s4"]
+[ext_resource type="Script" path="res://scripts/states/Enemy_Follow.gd" id="3_3t1dh"]
+[ext_resource type="Script" path="res://scripts/states/Enemy_Idle.gd" id="4_71y88"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da4fn"]
+resource_local_to_scene = true
+size = Vector2(35, 30)
+
+[sub_resource type="Animation" id="Animation_r5fir"]
+resource_name = "Okto_move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_3e4nl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u82wb"]
+_data = {
+"Okto_move": SubResource("Animation_r5fir"),
+"RESET": SubResource("Animation_3e4nl")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1hxu"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(0, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy5do"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(47, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wbqh"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(94, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw82r"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(141, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfc13"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(188, 0, 47, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fxb6"]
+atlas = ExtResource("2_jp0s4")
+region = Rect2(235, 0, 47, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oeo6i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1hxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy5do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wbqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw82r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfc13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fxb6")
+}],
+"loop": true,
+"name": &"okto_move",
+"speed": 8.0
+}]
+
+[node name="Oktopus" instance=ExtResource("1_wei42")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_da4fn")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_jp0s4")
+hframes = 6
+region_rect = Rect2(1.12642, 8.14785, 37.9259, 34.6667)
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_u82wb")
+}
+autoplay = "Okto_move"
+
+[node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Enemy_Idle")
+
+[node name="Enemy_Follow" type="Node" parent="StateMachine" index="0" node_paths=PackedStringArray("enemy")]
+script = ExtResource("3_3t1dh")
+enemy = NodePath("../..")
+move_speed = 50.0
+distance_to_follow = 90
+
+[node name="Enemy_Idle" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_71y88")
+enemy = NodePath("../..")
+distance_to_follow = 90
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_oeo6i")
+animation = &"okto_move"
+frame = 5
+frame_progress = 0.984977

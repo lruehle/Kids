@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpq4hmigg6hjq"]
+
+[ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://scenes/entities/player.tscn" id="1_mpse7"]
+[ext_resource type="Script" path="res://scripts/HUD.gd" id="2_4rubl"]
+[ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/Interactable/killzone.tscn" id="5_c6mlo"]
+[ext_resource type="FontFile" uid="uid://3nxm8sis26d1" path="res://assets/fonts/PixelOperator8.ttf" id="7_1oldq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8wut"]
+bg_color = Color(0, 0, 0, 0.470588)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fs22d"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Signal_Manager" type="Node" parent="."]
+
+[node name="Game_Manager" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Game_Manager"]
+
+[node name="HUD" type="Control" parent="Game_Manager/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1078.0
+offset_top = 11.0
+offset_right = 1144.0
+offset_bottom = 26.0
+scale = Vector2(1, 0.96)
+script = ExtResource("2_4rubl")
+
+[node name="Panel" type="Panel" parent="Game_Manager/CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = -94.0
+offset_top = 2.08333
+offset_right = 62.0
+offset_bottom = 105.083
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8wut")
+
+[node name="Score" type="Label" parent="Game_Manager/CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 11.5833
+offset_right = 60.0
+offset_bottom = 38.5833
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_1oldq")
+theme_override_font_sizes/font_size = 16
+text = "Gold:
+"
+autowrap_mode = 2
+
+[node name="pickups" type="Label" parent="Game_Manager/CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = 52.5833
+offset_right = 60.0
+offset_bottom = 79.5833
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_1oldq")
+theme_override_font_sizes/font_size = 16
+text = "Früchte:"
+autowrap_mode = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="Player" parent="." groups=["Climber"] instance=ExtResource("1_mpse7")]
+position = Vector2(0, -1)
+floor_constant_speed = true
+floor_snap_length = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+process_callback = 0
+limit_bottom = 250
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Killzone" parent="." instance=ExtResource("5_c6mlo")]
+position = Vector2(90, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_fs22d")
+debug_color = Color(1.2514e-06, 0.583552, 0.786048, 0.42)

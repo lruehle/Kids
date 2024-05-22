@@ -12,7 +12,7 @@ func _ready():
 #func _on_coin_collected():
 	#score_label.text = "Gold: "+ str(GameManager.score)
 
-func update_HUD_manager_values():
-	score_label.text = "Gold: "+ str(GameManager.score)
-	pickups.text = "Früchte: "+ str(GameManager.pickup_amount)
+func update_HUD_manager_values(score, pickup_amount):
+	score_label.text = "Gold: "+ str(score)
+	pickups.text = "Früchte: "+ str(pickup_amount)
 	

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var sprite = $Sprite2D
+@export
+var mirror_sprites : bool = false
 
 func _physics_process(delta):
 	move_and_slide()
@@ -10,6 +12,6 @@ func _physics_process(delta):
 	
 	#Spriteflip._h == true for movement towards right
 	if velocity.x > 0:
-		sprite.flip_h = true
+		sprite.flip_h = mirror_sprites
 	else:
-		sprite.flip_h = false
+		sprite.flip_h = !mirror_sprites

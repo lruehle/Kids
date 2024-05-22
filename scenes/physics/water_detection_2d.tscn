@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dylp6fmovsc4"]
+
+[ext_resource type="Script" path="res://scripts/physics/Water_Detection_2D.gd" id="1_mg0cy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tahim"]
+size = Vector2(12, 4)
+
+[node name="Water_Detection_2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_mg0cy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_tahim")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

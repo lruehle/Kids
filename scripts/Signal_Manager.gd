@@ -1,7 +1,7 @@
 extends Node
 
 
-signal killzone_player_death
-signal coin_collected
+signal player_death
+signal coin_collected(amount)
 signal add_pickup(amount)
-signal update_HUD_manager_values
+signal update_HUD_manager_values(score, pickup_amount)

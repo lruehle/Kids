@@ -5,6 +5,8 @@ class_name Enemy_Idle
 var enemy: CharacterBody2D
 @export
 var move_speed:= 10.0
+@export
+var distance_to_follow: int = 110
 
 var move_direction: Vector2
 var wander_time : float
@@ -30,6 +32,6 @@ func State_Physics_Update(delta: float):
 		enemy.velocity = move_direction * move_speed
 		
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < 70:
+	if direction.length() < distance_to_follow:
 		print("transition from idle")
 		Transitioned.emit(self, "Enemy_Follow")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dohfk14x0ton5"]
+
+[ext_resource type="Script" path="res://scripts/states/Test_enemy_Base.gd" id="1_5rkrs"]
+[ext_resource type="Script" path="res://scripts/states/State_Machine.gd" id="3_dokdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbubs"]
+resource_local_to_scene = true
+size = Vector2(35, 30)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xjfqm"]
+resource_local_to_scene = true
+load_path = "res://.godot/imported/Shark1.png-bfbd23e3b129c52c583bd00dc9fd9f2a.ctex"
+
+[node name="Enemy_WithStateMachine" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_5rkrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_gbubs")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_xjfqm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_dokdw")
+initial_state = NodePath("")
