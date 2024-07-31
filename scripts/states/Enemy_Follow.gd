@@ -20,6 +20,10 @@ func Enter():
 	
 
 func State_Physics_Update(delta: float):
+	#if $RayCast2D_water.is_colliding():
+		#print("out of water ", $RayCast2D_water.get_collider().body.name)
+		#move to different point
+		#Transitioned.emit(self, "enemy_idle")s
 	var direction = player.global_position - enemy.global_position
 	#move enemy towards Player while distance
 	if direction.length() > gap_while_follow:

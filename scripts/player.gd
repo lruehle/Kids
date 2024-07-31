@@ -2,8 +2,10 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed = 130.0
-const JUMP_VELOCITY = -350.0
-@export var SWIM_GRAVITY_FACTOR = 0.25
+const JUMP_VELOCITY : float = -350
+@export var SWIM_JUMP : float = -250
+@export var SWIM_GRAVITY_FACTOR : float = 0.25
+@export var SWIM_VELOCITY_CAP : float = 90
 
 var is_climbing = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -36,6 +38,11 @@ func _physics_process(delta):
 			animated_sprite.play("run")
 	elif is_climbing:
 		animated_sprite.play("climb")
+	elif is_in_water: 
+		if direction !=0:
+			animated_sprite.play("swim")
+		else:
+			animated_sprite.play("swim_idle")
 	else:
 		animated_sprite.play("jump")	
 	
@@ -47,8 +54,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func apply_gravity(delta):
-	if not is_on_floor() && not is_climbing:
+	if not is_on_floor() && not is_climbing && not is_in_water:
 		velocity.y += gravity * delta
+	elif is_in_water:
+		velocity.y = clampf(velocity.y + (gravity * delta * SWIM_GRAVITY_FACTOR), -500, SWIM_VELOCITY_CAP)
 	elif is_climbing:
 		velocity.y = 0
 		if Input.is_action_pressed("move_up"):
@@ -61,6 +70,9 @@ func handle_jumps():
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 	#shorter jump if released earlier
+	if is_in_water:
+		if Input.is_action_just_pressed("jump"):
+			velocity.y += SWIM_JUMP
 	else:
 		if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY/2:
 			velocity.y = JUMP_VELOCITY/2
@@ -74,4 +86,4 @@ func _disable_collision():
 
 func _on_water_detection_2d_water_state_changed(is_in_water : bool):
 	self.is_in_water = is_in_water
-	print(is_in_water)
+	print("water: ", is_in_water)

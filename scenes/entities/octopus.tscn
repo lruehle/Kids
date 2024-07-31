@@ -98,6 +98,7 @@ animations = [{
 }]
 
 [node name="Oktopus" instance=ExtResource("1_wei42")]
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(0.5, 0)
@@ -122,6 +123,13 @@ script = ExtResource("3_3t1dh")
 enemy = NodePath("../..")
 move_speed = 50.0
 distance_to_follow = 90
+
+[node name="RayCast2D_water" type="RayCast2D" parent="StateMachine/Enemy_Follow" index="0"]
+position = Vector2(-5, 6)
+target_position = Vector2(0, 16)
+collision_mask = 6
+hit_from_inside = true
+collide_with_areas = true
 
 [node name="Enemy_Idle" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy")]
 script = ExtResource("4_71y88")

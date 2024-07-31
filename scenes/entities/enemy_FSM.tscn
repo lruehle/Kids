@@ -25,6 +25,5 @@ texture = SubResource("CompressedTexture2D_xjfqm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_dokdw")
-initial_state = NodePath("")

@@ -14,4 +14,5 @@ func _physics_process(delta):
 	if velocity.x > 0:
 		sprite.flip_h = mirror_sprites
 	else:
+		#fix needde. Sprite should stay flipped, if facing the player
 		sprite.flip_h = !mirror_sprites
