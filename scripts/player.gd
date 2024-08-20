@@ -84,6 +84,6 @@ func _disable_collision():
 	
 
 
-func _on_water_detection_2d_water_state_changed(is_in_water : bool):
-	self.is_in_water = is_in_water
-	print("water: ", is_in_water)
+func _on_water_detection_2d_water_state_changed(is_now_in_water : bool):
+	self.is_in_water = is_now_in_water
+	print("water: ", is_now_in_water)
