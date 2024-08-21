@@ -7,7 +7,7 @@ resource_local_to_scene = true
 load_path = "res://.godot/imported/platforms.png-3869606db457611ed4193d705dc364e4.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nowh5"]
-size = Vector2(30.8153, 8)
+size = Vector2(29.708, 8)
 
 [node name="tween_platform" type="Node2D"]
 script = ExtResource("1_uc4ep")
