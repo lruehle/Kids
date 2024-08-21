@@ -16,3 +16,6 @@ func update_HUD_manager_values(score, pickup_amount):
 	score_label.text = "Gold: "+ str(score)
 	pickups.text = "Früchte: "+ str(pickup_amount)
 	
+
+func _on_menue_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/level_scenes/menue.tscn")

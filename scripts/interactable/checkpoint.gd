@@ -18,5 +18,5 @@ func activate():
 
 func _on_area_2d_area_entered(area):
 	if area.get_parent() is Player && !activated:
-		print("active")
+		#print("active")
 		activate()

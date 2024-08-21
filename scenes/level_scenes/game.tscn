@@ -1,12 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpq4hmigg6hjq"]
+[gd_scene load_steps=8 format=3 uid="uid://cpq4hmigg6hjq"]
 
 [ext_resource type="PackedScene" uid="uid://02yb8aqvo00y" path="res://scenes/entities/player.tscn" id="1_mpse7"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="2_4rubl"]
+[ext_resource type="PackedScene" uid="uid://sewtmisutce8" path="res://scenes/Interactable/level_transition.tscn" id="3_rjtlb"]
 [ext_resource type="PackedScene" uid="uid://cn7f0y7t4qr00" path="res://scenes/Interactable/killzone.tscn" id="5_c6mlo"]
 [ext_resource type="FontFile" uid="uid://3nxm8sis26d1" path="res://assets/fonts/PixelOperator8.ttf" id="7_1oldq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8wut"]
-bg_color = Color(0, 0, 0, 0.470588)
+bg_color = Color(0.329412, 0.329412, 0.329412, 0.52549)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -73,8 +74,19 @@ theme_override_font_sizes/font_size = 16
 text = "Früchte:"
 autowrap_mode = 2
 
+[node name="menue_Button" type="Button" parent="Game_Manager/CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = -1055.0
+offset_top = 7.29167
+offset_right = -993.0
+offset_bottom = 38.2917
+theme_override_fonts/font = ExtResource("7_1oldq")
+text = "Menue"
+
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
+
+[node name="LevelTransition" parent="." instance=ExtResource("3_rjtlb")]
 
 [node name="Player" parent="." groups=["Climber"] instance=ExtResource("1_mpse7")]
 position = Vector2(0, -1)
@@ -94,3 +106,7 @@ position = Vector2(90, 125)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_fs22d")
 debug_color = Color(1.2514e-06, 0.583552, 0.786048, 0.42)
+
+[connection signal="pressed" from="Game_Manager/CanvasLayer/HUD/menue_Button" to="Game_Manager/CanvasLayer/HUD" method="_on_menue_button_pressed"]
+
+[editable path="LevelTransition"]
