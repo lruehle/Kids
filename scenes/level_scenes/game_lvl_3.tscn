@@ -28,6 +28,7 @@ load_path = "res://.godot/imported/platforms.png-3869606db457611ed4193d705dc364e
 [node name="Game" instance=ExtResource("1_hfusu")]
 
 [node name="TileMap" parent="." index="2"]
+visible = false
 position = Vector2(-37, -32)
 tile_set = ExtResource("2_cknjo")
 layer_0/name = "Background"
@@ -81,7 +82,7 @@ position = Vector2(1015, -333)
 position = Vector2(1231, 35)
 
 [node name="Checkpoint_3" parent="Checkpoint_container" index="3" instance=ExtResource("3_4c541")]
-position = Vector2(2175, -395)
+position = Vector2(1955, -335)
 
 [node name="Checkpoint_4" parent="Checkpoint_container" index="4" instance=ExtResource("3_4c541")]
 position = Vector2(1604, 19)
